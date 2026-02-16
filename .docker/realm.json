@@ -1,0 +1,48 @@
+{
+  "realm": "demo",
+  "enabled": true,
+  "roles": {
+    "realm": [
+      {
+        "name": "user_viewer",
+        "description": "can read users and their data"
+      },
+      {
+        "name": "user_manager",
+        "description": "can read and write users and their data"
+      },
+      {
+        "name": "application_viewer",
+        "description": "can read user applications"
+      },
+      {
+        "name": "application_manager",
+        "description": "can read and write user applications"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "demo",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "passw0rd",
+      "serviceAccountsEnabled": true,
+      "publicClient": false,
+      "attributes": {
+        "use.jwks.url": "true"
+      }
+    }
+  ],
+  "users": [
+    {
+      "username": "service-account-demo",
+      "enabled": true,
+      "serviceAccountClientId": "demo",
+      "realmRoles": [
+        "user_manager",
+        "user_viewer"
+      ]
+    }
+  ]
+}
